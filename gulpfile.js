@@ -1,5 +1,6 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
+var gulp = require('gulp'),
+    concat = require('gulp-concat'),
+    prefix = require('gulp-autoprefixer');
 
 
 gulp.task('copy', function(){
@@ -10,14 +11,15 @@ gulp.task('copy', function(){
 
 gulp.task('css', function(){
   return gulp.src('project/*.css')
+           .pipe(prefix('last 2 versions'))
            .pipe(concat('main.css'))
            .pipe(gulp.dest('dist'))
 
-})
+});
 
 gulp.task('scripts', function(){
   return gulp.src('project/*.js')
            .pipe(concat('all.js'))
            .pipe(gulp.dest('dist'))
 
-})
+});

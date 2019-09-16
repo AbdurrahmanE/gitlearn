@@ -4,19 +4,20 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     pug = require('gulp-pug');
 
-
+//copile pugjs with gulp and make it pretty
 gulp.task('html', function(){
    return gulp.src('project/index.pug')
        .pipe(pug({pretty: true}))
        .pipe(gulp.dest('dist'))
 
 });
+//copy file with gulp from project to dist file
 gulp.task('copy', function(){
    return gulp.src('project/index.html')
       .pipe(gulp.dest('dist/html'))
 
 });
-
+//Concatenate CSS and JS Files In One File to be compressed and fit to last 2 versions browser
 gulp.task('css', function(){
   return gulp.src('project/css/main.scss')
            .pipe(sass({outputStyle: 'compressed'}))

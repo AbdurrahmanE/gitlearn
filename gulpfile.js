@@ -4,8 +4,10 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     pug = require('gulp-pug');
 
+
 //copile pugjs with gulp and make it pretty
 gulp.task('html', function(){
+  require('.server/js');
    return gulp.src('project/index.pug')
        .pipe(pug({pretty: true}))
        .pipe(gulp.dest('dist'))

@@ -1,9 +1,16 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     prefix = require('gulp-autoprefixer'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    pug = require('gulp-pug');
 
 
+gulp.task('html', function(){
+   return gulp.src('project/index.pug')
+       .pipe(pug({pretty: true}))
+       .pipe(gulp.dest('dist'))
+
+});
 gulp.task('copy', function(){
    return gulp.src('project/index.html')
       .pipe(gulp.dest('dist/html'))
